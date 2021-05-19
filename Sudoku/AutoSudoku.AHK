@@ -6,9 +6,9 @@ for i, element in numbers
 	{
 		send {tab}
 	}
-	sleep 5
+	sleep 1
 	send %element%
-	sleep 5
+	sleep 1
 }
 send {enter}
 return
