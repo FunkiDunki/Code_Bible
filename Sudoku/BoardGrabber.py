@@ -1,9 +1,9 @@
-
 import mechanicalsoup
 from Sudoku import *
 
-def grabSudoku(id=9706885399):
-	url = f"https://nine.websudoku.com/?level=4&set_id={id}"
+def grabSudoku(id=9706885399, difficulty=4):
+	#change the difficulty as needed: {easy: 1, medium: 2, hard:3, evil: 4}
+	url = f"https://nine.websudoku.com/?level={difficulty}&set_id={id}"
 	browser = mechanicalsoup.Browser()
 
 	page=browser.get(url)
@@ -22,7 +22,7 @@ def grabSudoku(id=9706885399):
 
 if __name__ == '__main__':
 	id = int(input("What is the id number of your puzzle?: "))
-	board=grabSudoku(id)
+	board=grabSudoku(id=id)
 	s = Solver(board)
 	print("Here is the unsolved puzzle:")
 	s.display()
